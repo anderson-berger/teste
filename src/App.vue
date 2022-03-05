@@ -1,17 +1,18 @@
 <template>
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <bingoManager/>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import BingoManager from './components/BingoManager.vue'
+
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    BingoManager
   }
 }
 </script>
