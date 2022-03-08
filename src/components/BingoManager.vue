@@ -1,9 +1,10 @@
 
 <template>
-  <b-container >
+  <b-container fluid>
     <b-row >
       <b-col md="4" >
-        <div  v-if="bingo">
+        
+           <div  v-if="bingo">
            
             <span v-for="item in bingo.placar.qtdNumeros" :key="item.id">{{item}} </span>
           
