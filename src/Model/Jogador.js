@@ -19,9 +19,9 @@ export default class Jogador{
     inicializarCartelas(qtd){
         for(let i=0; i<qtd; i++){
             let cartela = new Cartela(Bingo.qtdNumerosTotal);
-            cartela.criarCartela
+            cartela.criarCartela();
             this.cartelas.push(cartela)
-            console.log(cartela);
+            console.log("B" + cartela.B);
         }
         
     }

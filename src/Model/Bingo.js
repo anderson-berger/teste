@@ -23,6 +23,5 @@ export default class Bingo {
    let aux = new Jogador(nome, qtdCartelas)
    aux.inicializarCartelas(qtdCartelas);
    this.jogador.push(aux)
-    console.log("passou aqui")
   }
 }

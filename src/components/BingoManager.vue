@@ -82,9 +82,6 @@ export default {
   },
   methods: {
     cadastrar() {
-      console.log("passou")
-      console.log(this.nome)
-      console.log(this.qtd)
       this.bingo.cadastrarJogador(this.nome, parseInt(this.qtd, 8));
     },
     comecar() {
