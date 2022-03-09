@@ -60,8 +60,8 @@
         </div>
         <h1>Hello world!!!</h1>
         <ul>
-          <li v-for="item in bingo.jogador" :key="item">
-            {{ item.message }} {{item.cartelas}}
+          <li v-for="(jogador, index) of bingo.jogador" :key="index">
+            {{ jogador.nome }} {{item.cartelas}}
           </li>
         </ul>
       </div>
