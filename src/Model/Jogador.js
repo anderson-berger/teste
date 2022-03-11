@@ -8,8 +8,8 @@ export default class Jogador{
         Jogador.ID++;
         this.qtdCartelas = qtd;
         this.id = Jogador.ID; 
-        this.nome=nome
-        this.cartelas = []
+        this.nome=nome;
+        this.cartelas = [];
     }
 
     comprarCartela() {
@@ -21,8 +21,7 @@ export default class Jogador{
             let cartela = new Cartela(Bingo.qtdNumerosTotal);
             cartela.criarCartela();
             this.cartelas.push(cartela)
-            console.log("B" + cartela.B);
         }
-        
+        console.log("Cartela A " + this.cartelas[0].N);
     }
 }

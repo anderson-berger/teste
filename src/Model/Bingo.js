@@ -1,27 +1,29 @@
 
 import Placar from "./Placar";
-import Jogador from "./Jogador";
+/*import Jogador from "./Jogador";*/
 
 
 export default class Bingo {
 
   static qtdNumerosTotal = 75;
 
-  constructor({ placar}) {
-    this.jogador = [];
+  constructor({placar}) {
+    /*this.jogador = [];*/
     this.placar = placar;
   }
 
   static comecar() {
-    let placar = new Placar(Bingo.qtdNumerosTotal);
+    let placar = new Placar();
     placar.inicializarPlacar();
     const bingo = new Bingo({placar});
     return bingo;
   }
 
-  cadastrarJogador(nome,qtdCartelas){
+  /*cadastrarJogador(nome,qtdCartelas){
    let aux = new Jogador(nome, qtdCartelas)
    aux.inicializarCartelas(qtdCartelas);
    this.jogador.push(aux)
-  }
+  }*/
 }
+
+
