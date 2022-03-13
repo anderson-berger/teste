@@ -2,7 +2,7 @@
     <div> 
             
             <h1>Nome do Ganhador: {{this.ganhador.nome}}</h1>
-            <h1>Numeros sorteados: {{this.ganhador.numerosGanhadores}}</h1>
+            <h3>Numeros sorteados: {{this.ganhador.numerosGanhadores}}</h3>
             
     </div>
 </template>

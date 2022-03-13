@@ -3,7 +3,7 @@
   <div class="principal" v-if="this.jogadores.length > 0" >
     <div v-for="(jogador, index) in jogadores" v-bind:key="index">
     <b-card
-      img-src="https://placekitten.com/300/300"
+      img-src="https://pickaface.net/gallery/avatar/unr_profesorgenerico1_170329_1619_9pmc8o.png"
       img-alt="Card image"
       img-left
       class="mb-3"

@@ -1,5 +1,5 @@
 <template>
-  <div v-if="placar != null">
+  <div class="mb-4 placar" v-if="placar != null">
     <div v-if="letras[0] == null">{{ instanciarPlacar() }}</div>
     <button
       class="submit-btn"
@@ -181,7 +181,8 @@ export default {
   text-align: center;
   justify-content: center;
   align-items: center;
-  min-height: 10vh;
+  min-height: 17vh;
+  max-height: 17vh;
 }
 
 .tabela {
@@ -203,6 +204,7 @@ th {
 table {
   border-collapse: unset;
   margin-left: 85px;
+  display: grid;
 }
 .submit-btn {
   background-color: #222;
@@ -275,5 +277,9 @@ span {
 .numero {
   color: #ff0000;
   font-weight: bold;
+}
+
+.placar {
+  display: inline-block;
 }
 </style>
