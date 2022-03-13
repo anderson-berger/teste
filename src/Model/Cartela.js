@@ -35,11 +35,6 @@ export default class Cartela {
             max = aux * 5 + 1;
             min = aux * 5 - aux + 1;
             this.escolherNumerosAleatorios(this.O, max, min);
-            console.log("B " + this.B)
-            console.log("I " + this.I)
-            console.log("N " + this.N)
-            console.log("G " + this.G)
-            console.log("O " + this.O)
         }
     }
 

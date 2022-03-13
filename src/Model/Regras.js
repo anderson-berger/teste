@@ -35,25 +35,25 @@ export default class Regras {
             }
            
         }
-        console.log(this.temGanhador)
+        
         if(this.temGanhador === false){
             for(let i=0; i< cartelas.length; i++){
                 this.regrasParaGanharPorLinha(cartelas[i].B, cartelas[i].I, cartelas[i].N, cartelas[i].G, cartelas[i].O);
             }
         }
-        console.log(this.temGanhador)
+        
         if(this.temGanhador === false){
             for(let i=0; i< cartelas.length; i++){
                 this.regrasParaGanharDeCimaParaBaixo(cartelas[i].B, cartelas[i].I, cartelas[i].G, cartelas[i].O);
             }
         }
-        console.log(this.temGanhador)
+        
         if(this.temGanhador === false){
             for(let i=0; i< cartelas.length; i++){
                 this.regrasParaGanharDeBaixoParaCima(cartelas[i].B, cartelas[i].I, cartelas[i].G, cartelas[i].O);
             }
         }
-        console.log(this.temGanhador)
+        
         if(this.temGanhador === true){
             return true
         }

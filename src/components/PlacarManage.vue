@@ -154,7 +154,6 @@ export default {
 
   methods: {
     enviarNumeroSorteado() {
-      console.log("aki");
       this.$emit("enviar-ultimo-numero-sorteado", this.ultimoNumeroSorteado);
     },
     instanciarPlacar() {

@@ -37,11 +37,9 @@ export default class Bingo {
 
   conferirVencedor(numeroSorteado){
     for(let i=0; i< this.jogadores.length; i++){
-      console.log(this.jogadores[i].cartelas.length)
       this.regras.conferirCartelasDoJogador(numeroSorteado, this.jogadores[i]);
 
       if(this.regras.temGanhador === true){
-        console.log(this.regras.temGanhador)
         this.ganhador = new Ganhador(this.jogadores[i].nome, this.regras.numerosGanhadores)
         i = this.jogadores.length;
       }

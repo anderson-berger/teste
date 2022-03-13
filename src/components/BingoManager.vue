@@ -84,7 +84,6 @@ export default {
 
   methods: {
     conferirCartela(ultimoNumeroSorteado) {
-      console.log("???");
       this.bingo.conferirVencedor(ultimoNumeroSorteado);
       if (this.bingo.ganhador != null) {
         this.ganhador = this.bingo.ganhador;
@@ -99,7 +98,6 @@ export default {
       this.jogadores = bingo.jogadores;
       this.bingo = bingo;
       this.placar = this.bingo.placar;
-      console.log("BingoManager" + this.placar.letras);
     },
 
     cadastrarJogador() {
@@ -107,7 +105,6 @@ export default {
         let aux = new Jogador(this.nomeJogador, this.qtdCartelasJogador);
         aux.inicializarCartelas(this.qtdCartelasJogador);
         this.jogadores.push(aux);
-        console.log(this.jogadores);
       }else{
         alert("Jogador precisa de um nome");
       }
