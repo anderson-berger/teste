@@ -21,7 +21,6 @@ export default class Jogador{
             let cartela = new Cartela(Bingo.qtdNumerosTotal);
             cartela.criarCartela();
             this.cartelas.push(cartela)
-        }
-        console.log("Cartela A " + this.cartelas[0].N);
+        }     
     }
 }

@@ -1,29 +1,53 @@
 
 import Placar from "./Placar";
-/*import Jogador from "./Jogador";*/
+import Jogador from "./Jogador";
+import Regras from "./Regras";
+import Ganhador from "./Ganhador";
 
 
 export default class Bingo {
 
   static qtdNumerosTotal = 75;
 
-  constructor({placar}) {
-    /*this.jogador = [];*/
-    this.placar = placar;
+  constructor() {
+    this.jogadores = [];
+    this.placar = null;
+    this.regras = null;
+    this.ganhador = null;
   }
 
   static comecar() {
-    let placar = new Placar();
-    placar.inicializarPlacar();
-    const bingo = new Bingo({placar});
+    
+    const bingo = new Bingo();
+    bingo.regras = new Regras();
     return bingo;
   }
 
-  /*cadastrarJogador(nome,qtdCartelas){
+  instanciarPlacar(){
+    let placar = new Placar();
+    placar.inicializarPlacar();
+    this.placar = placar;
+}
+
+  cadastrarJogador(nome,qtdCartelas){
    let aux = new Jogador(nome, qtdCartelas)
    aux.inicializarCartelas(qtdCartelas);
    this.jogador.push(aux)
-  }*/
+  }
+
+  conferirVencedor(numeroSorteado){
+    for(let i=0; i< this.jogadores.length; i++){
+      console.log(this.jogadores[i].cartelas.length)
+      this.regras.conferirCartelasDoJogador(numeroSorteado, this.jogadores[i]);
+
+      if(this.regras.temGanhador === true){
+        console.log(this.regras.temGanhador)
+        this.ganhador = new Ganhador(this.jogadores[i].nome, this.regras.numerosGanhadores)
+        i = this.jogadores.length;
+      }
+    }
+   
+  }
 }
 
 

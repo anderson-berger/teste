@@ -35,6 +35,11 @@ export default class Cartela {
             max = aux * 5 + 1;
             min = aux * 5 - aux + 1;
             this.escolherNumerosAleatorios(this.O, max, min);
+            console.log("B " + this.B)
+            console.log("I " + this.I)
+            console.log("N " + this.N)
+            console.log("G " + this.G)
+            console.log("O " + this.O)
         }
     }
 
@@ -53,55 +58,6 @@ export default class Cartela {
         array[2] = null;
     }
 
-     desenharCartela  ()  {
-        return <div>
-        <table>
-            <tr>
-                <th>B</th>
-                <th>I</th>
-                <th>N</th>
-                <th>G</th>
-                <th>O</th>
-            </tr>
-            <tr>
-                <td id = "B">${this.B[0]}</td>
-                <td id = "B">${this.B[1]}</td>
-                <td id = "B">${this.B[2]}</td>
-                <td id = "B">${this.B[3]}</td>
-                <td id = "B">${this.B[4]}</td>
-            </tr>
-            <tr>
-                <td id = "B">${this.I[0]}</td>
-                <td id = "B">${this.I[1]}</td>
-                <td id = "B">${this.I[2]}</td>
-                <td id = "B">${this.I[3]}</td>
-                <td id = "B">${this.I[4]}</td>
-            </tr>
-            <tr>
-                <td id = "B">${this.N[0]}</td>
-                <td id = "B">${this.N[1]}</td>
-                <td id = "B">${this.N[2]}</td>
-                <td id = "B">${this.N[3]}</td>
-                <td id = "B">${this.N[4]}</td>
-            </tr>
-            <tr>
-                <td id = "B">${this.G[0]}</td>
-                <td id = "B">${this.G[1]}</td>
-                <td id = "B">${this.G[2]}</td>
-                <td id = "B">${this.G[3]}</td>
-                <td id = "B">${this.G[4]}</td>
-            </tr>
-            <tr>
-                <td id = "B">${this.O[0]}</td>
-                <td id = "B">${this.O[1]}</td>
-                <td id = "B">${this.O[2]}</td>
-                <td id = "B">${this.O[3]}</td>
-                <td id = "B">${this.O[4]}</td>
-            </tr>
-        </table>
-        <br></br>
-        </div>
-    }
 
 
     /*criarCartela(qtdTotal){

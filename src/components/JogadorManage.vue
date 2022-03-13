@@ -1,6 +1,7 @@
 
 <template>
-  <div class="principal">
+  <div class="principal" v-if="this.jogadores.length > 0" >
+    <div v-for="(jogador, index) in jogadores" v-bind:key="index">
     <b-card
       img-src="https://placekitten.com/300/300"
       img-alt="Card image"
@@ -8,32 +9,50 @@
       class="mb-3"
     >
       <b-card-text>
-        Some quick example text to build on the card and make up the bulk of the
-        card's content.
+        <h1 class="nome-jogador">{{jogador.nome}}</h1>
+        <cartela-manage :cartelas="jogador.cartelas"></cartela-manage>
       </b-card-text>
     </b-card>
+  </div>  
   </div>
 </template>
 
 <script>
+import CartelaManage from "./CartelaManage.vue";
+
 export default {
-  
-  props: ["jogador"],
-  data(){
-      return{
-          id_value: "",
-          nome_value: ""
-      }
+
+  props: { jogadores: [] },
+
+  data() {
+    return {
+      nomeJogador: "",
+      qtdCartelasJogador: "",
+      cartelas:[],
+    };
   },
 
-  methods:{
-      istanciarJogador(){
-          this.id_value = this.jogador.id;
-          this.nome_value = this.jogador.nome;
-      }
-  }
+  watch:{
+    cartelas(){
+
+    }
+
+  },
+  components: {
+    CartelaManage,
+  },
+
+  methods: {
+    instanciarJogadores(){
+      this.nomeJogador = this.jogadores
+    }
+
+  },
 };
 </script>
 
 <style scoped>
+  .nome-jogador{
+    text-decoration: underline;
+  }
 </style>
