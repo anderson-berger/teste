@@ -10,6 +10,8 @@ export default class Cartela {
         this.O = [];
     }
 
+ 
+
     criarCartela() {
         let qtdNumeroPorColuna = 5;
         if (Bingo.qtdNumerosTotal % qtdNumeroPorColuna === 0) {

@@ -1,7 +1,7 @@
 <template>
   <b-container fluid>
     <b-row>
-      <b-col md="4">
+      <b-col class="colPlacar" md="4">
         <div v-if="bingo && jogadores.length > 0" >
           <placar-manage
             :placar="placar"
@@ -32,7 +32,7 @@
                 type="number"
                 id="cartela"
                 name="cartela"
-                min="0"
+                min="1"
                 max="6"
                 v-model="qtdCartelasJogador"
                 placeholder="Quantas cartelas ele comprou?"
@@ -52,7 +52,7 @@
     </b-row>
 
     <b-row>
-      <jogador-manage :jogadores="jogadores"></jogador-manage>
+      <jogador-manage :jogadores="jogadores" :ultimoNumeroSorteado="ultimoNumeroSorteado" :letraSorteada ="letraSorteada"></jogador-manage>
     </b-row>
   </b-container>
 </template>
@@ -73,6 +73,8 @@ export default {
       nomeJogador: "",
       qtdCartelasJogador: "",
       ganhador: null,
+      ultimoNumeroSorteado: "",
+      letraSorteada:"",
     };
   },
 
@@ -83,7 +85,10 @@ export default {
   },
 
   methods: {
-    conferirCartela(ultimoNumeroSorteado) {
+    conferirCartela(ultimoNumeroSorteado, letraSorteada) {
+      this.ultimoNumeroSorteado = ultimoNumeroSorteado;
+      this.letraSorteada = letraSorteada;
+
       this.bingo.conferirVencedor(ultimoNumeroSorteado);
       if (this.bingo.ganhador != null) {
         this.ganhador = this.bingo.ganhador;
@@ -115,6 +120,14 @@ export default {
 </script>
 
 <style>
+/*.colPlacar{
+  justify-content: center;
+  justify-content: center;
+  align-items: center;
+
+  gap: 4px;
+  grid-auto-flow: cloumn;
+}*/
 #jogador-form {
   max-width: 400px;
   margin: 30px auto;
