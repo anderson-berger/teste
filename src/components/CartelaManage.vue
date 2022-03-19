@@ -10,39 +10,39 @@
                 <th class="thBingo">O</th>
             </tr>
             <tr>
-                <td id="1">{{cartela.B[0]}}</td>
-                <td id="6">{{cartela.I[0]}}</td>
-                <td id="11">{{cartela.N[0]}}</td>
-                <td id="16">{{cartela.G[0]}}</td>
-                <td id="21">{{cartela.O[0]}}</td>
+                <td :class="`${cartela.B[0]}`">{{cartela.B[0]}}</td>
+                <td :class="`${cartela.I[0]}`">{{cartela.I[0]}}</td>
+                <td :class="`${cartela.N[0]}`">{{cartela.N[0]}}</td>
+                <td :class="`${cartela.G[0]}`">{{cartela.G[0]}}</td>
+                <td :class="`${cartela.O[0]}`">{{cartela.O[0]}}</td>
             </tr>
             <tr>
-                <td id="2">{{cartela.B[1]}}</td>
-                <td id="7">{{cartela.I[1]}}</td>
-                <td id="12">{{cartela.N[1]}}</td>
-                <td id="17">{{cartela.G[1]}}</td>
-                <td id="22">{{cartela.O[1]}}</td>
+                <td :class="`${cartela.B[1]}`">{{cartela.B[1]}}</td>
+                <td :class="`${cartela.I[1]}`">{{cartela.I[1]}}</td>
+                <td :class="`${cartela.N[1]}`">{{cartela.N[1]}}</td>
+                <td :class="`${cartela.G[1]}`">{{cartela.G[1]}}</td>
+                <td :class="`${cartela.O[1]}`">{{cartela.O[1]}}</td>
             </tr>
             <tr>
-                <td id="3">{{cartela.B[2]}}</td>
-                <td id="8">{{cartela.I[2]}}</td>
-                <td id="13">FREE</td>
-                <td id="18">{{cartela.G[2]}}</td>
-                <td id="23">{{cartela.O[2]}}</td>
+                <td :class="`${cartela.B[2]}`">{{cartela.B[2]}}</td>
+                <td :class="`${cartela.I[2]}`">{{cartela.I[2]}}</td>
+                <td :class="`${cartela.N[2]}`">FREE</td>
+                <td :class="`${cartela.G[2]}`">{{cartela.G[2]}}</td>
+                <td :class="`${cartela.O[2]}`">{{cartela.O[2]}}</td>
             </tr>
             <tr>
-                <td id="4">{{cartela.B[3]}}</td>
-                <td id="9">{{cartela.I[3]}}</td>
-                <td id="14">{{cartela.N[3]}}</td>
-                <td id="19">{{cartela.G[3]}}</td>
-                <td id="24">{{cartela.O[3]}}</td>
+                <td :class="`${cartela.B[3]}`">{{cartela.B[3]}}</td>
+                <td :class="`${cartela.I[3]}`">{{cartela.I[3]}}</td>
+                <td :class="`${cartela.N[3]}`">{{cartela.N[3]}}</td>
+                <td :class="`${cartela.G[3]}`">{{cartela.G[3]}}</td>
+                <td :class="`${cartela.O[3]}`">{{cartela.O[3]}}</td>
             </tr>
             <tr>
-                <td id="5">{{cartela.B[4]}}</td>
-                <td id="10">{{cartela.I[4]}}</td>
-                <td id="15">{{cartela.N[4]}}</td>
-                <td id="20">{{cartela.G[4]}}</td>
-                <td id="25">{{cartela.O[4]}}</td>
+                <td :class="`${cartela.B[4]}`">{{cartela.B[4]}}</td>
+                <td :class="`${cartela.I[4]}`">{{cartela.I[4]}}</td>
+                <td :class="`${cartela.N[4]}`">{{cartela.N[4]}}</td>
+                <td :class="`${cartela.G[4]}`">{{cartela.G[4]}}</td>
+                <td :class="`${cartela.O[4]}`">{{cartela.O[4]}}</td>
             </tr>
         </table>
       </div>
@@ -64,50 +64,12 @@ export default {
       
     };
   },
-   watch:{
-   ultimoNumeroSorteado(){
-      
-       if(this.ultimoNumeroSorteado != ""){ 
-           this.marcaNumeroSorteado();
-       }
-       
-   }
-  },
+  
  
     methods:{
-        marcaNumeroSorteado(){
-        switch (this.letraSorteada){
-            
-            case 'B':
-                    console.log(this.cartela.B.indexOf(parseInt(this.ultimoNumeroSorteado))) 
-                    if(this.cartela.B.indexOf(parseInt(this.ultimoNumeroSorteado)) >= 0){
-                        console.log(this.ultimoNumeroSorteado);
-                        console.log(this.letraSorteada);
-                        let aux = document.getElementById(this.cartela.B.indexOf(parseInt(this.ultimoNumeroSorteado)) + 1);
-                        console.log(aux)
-                        console.log();
-                        aux.style.background = "#f3f3f3";
-                        console.log(aux)
-                    }
-                
-            break;
-            case 'I':
-
-            break;
-            case 'N':
-
-            break;
-            case 'G':
-
-            break;
-            case 'O':
-
-            break;
-            default :
-            console.log("No case")
-        }
+       
     },
-}
+
 }
 </script>
 

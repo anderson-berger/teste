@@ -34,11 +34,13 @@ export default {
   },
 
   watch:{
-    cartelas(){
-
+   ultimoNumeroSorteado(){
+    if(this.ultimoNumeroSorteado != ""){ 
+       this.marcaNumeroSorteado();
     }
-
+   }
   },
+
   components: {
     CartelaManage,
   },
@@ -46,7 +48,13 @@ export default {
   methods: {
     instanciarJogadores(){
       this.nomeJogador = this.jogadores
-    }
+    },
+    marcaNumeroSorteado(){
+        var aux = document.getElementsByClassName(this.ultimoNumeroSorteado);
+        for(let i=0; i<aux.length;i++){
+          aux[i].style.background = "mediumseagreen";
+        }  
+    },
 
   },
 };

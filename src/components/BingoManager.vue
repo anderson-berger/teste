@@ -2,7 +2,7 @@
   <b-container fluid>
     <b-row>
       <b-col class="colPlacar" md="4">
-        <div v-if="bingo && jogadores.length > 0" >
+        <div v-if="bingo && jogadores.length > 0 && this.ganhador === null" >
           <placar-manage
             :placar="placar"
             @enviar-ultimo-numero-sorteado="conferirCartela"
@@ -86,9 +86,10 @@ export default {
 
   methods: {
     conferirCartela(ultimoNumeroSorteado, letraSorteada) {
+      
       this.ultimoNumeroSorteado = ultimoNumeroSorteado;
       this.letraSorteada = letraSorteada;
-
+      
       this.bingo.conferirVencedor(ultimoNumeroSorteado);
       if (this.bingo.ganhador != null) {
         this.ganhador = this.bingo.ganhador;
@@ -96,7 +97,12 @@ export default {
     },
     comecar() {
       let bingo = Bingo.comecar();
-      this.ganhador = null;
+      this.jogadores = [],
+      this.nomeJogador = "",
+      this.qtdCartelasJogador = "",
+      this.ganhador = null,
+      this.ultimoNumeroSorteado = "",
+      this.letraSorteada = "",
 
       bingo.instanciarPlacar();
       this.placar = bingo.placar;
@@ -106,13 +112,22 @@ export default {
     },
 
     cadastrarJogador() {
-      if(this.nomeJogador != ""){
-        let aux = new Jogador(this.nomeJogador, this.qtdCartelasJogador);
-        aux.inicializarCartelas(this.qtdCartelasJogador);
-        this.jogadores.push(aux);
+      if(this.letraSorteada === ""){
+        if(this.nomeJogador != ""){
+          if(this.qtdCartelasJogador >= 1 &&this.qtdCartelasJogador <= 6){
+            let aux = new Jogador(this.nomeJogador, this.qtdCartelasJogador);
+            aux.inicializarCartelas(this.qtdCartelasJogador);
+            this.jogadores.push(aux);
+          }else{
+            alert("Quantidade fora do range: Minimo = 0, Maximo  = 6");
+        }
+        }else{
+          alert("Jogador precisa de um nome");
+        }
       }else{
-        alert("Jogador precisa de um nome");
+        alert("Espere até a proxima partida");
       }
+      
       
     },
   },

@@ -9,82 +9,83 @@ export default class Regras {
     }
 
     conferirCartelasDoJogador(numeroSorteado, jogador){
+        
         if(this.numerosSorteados.indexOf(numeroSorteado) < 0){
             this.numerosSorteados.push(numeroSorteado);
         }
         let cartelas = jogador.cartelas;
-        this.conferirCartelas(cartelas);
+
+        for(let i=0; i<cartelas.length; i++){
+            this.conferirCartela(cartelas[i]);
+        }
+        
+        
+        
     }
 
-    conferirCartelas(cartelas){
-        for(let i=0; i< cartelas.length; i++){
-            if(this.temGanhador == false){
-                this.regrasParaGanharPorColuna(cartelas[i].B);
-            }
-             if(this.temGanhador === false){
-                this.regrasParaGanharPorColuna(cartelas[i].I);
-            }
-             if(this.temGanhador === false){
-                this.regrasParaGanharPorColuna(cartelas[i].N);
-            }
-            if(this.temGanhador == false){
-                this.regrasParaGanharPorColuna(cartelas[i].G);
-            }
-            if(this.temGanhador == false){
-                this.regrasParaGanharPorColuna(cartelas[i].O);
-            }
-           
+    conferirCartela(cartela){
+        if(this.temGanhador == false){
+            this.regrasParaGanharPorColuna(cartela.B);
         }
-        
+         if(this.temGanhador === false){
+            this.regrasParaGanharPorColuna(cartela.I);
+        }
+         if(this.temGanhador === false){
+            this.regrasParaGanharPorColuna(cartela.N);
+        }
+        if(this.temGanhador == false){
+            this.regrasParaGanharPorColuna(cartela.G); 
+        }
+        if(this.temGanhador == false){
+            this.regrasParaGanharPorColuna(cartela.O); 
+        }
+
         if(this.temGanhador === false){
-            for(let i=0; i< cartelas.length; i++){
-                this.regrasParaGanharPorLinha(cartelas[i].B, cartelas[i].I, cartelas[i].N, cartelas[i].G, cartelas[i].O);
+            for(let i=0; i< cartela.B.length; i++){
+                this.regrasParaGanharPorLinha(cartela);
             }
         }
-        
+
         if(this.temGanhador === false){
-            for(let i=0; i< cartelas.length; i++){
-                this.regrasParaGanharDeCimaParaBaixo(cartelas[i].B, cartelas[i].I, cartelas[i].G, cartelas[i].O);
-            }
+            this.regrasParaGanharDeCimaParaBaixo(cartela);
         }
-        
+
         if(this.temGanhador === false){
-            for(let i=0; i< cartelas.length; i++){
-                this.regrasParaGanharDeBaixoParaCima(cartelas[i].B, cartelas[i].I, cartelas[i].G, cartelas[i].O);
-            }
+            this.regrasParaGanharDeBaixoParaCima(cartela);
         }
-        
-        if(this.temGanhador === true){
-            return true
-        }
-        return false
     }
 
     regrasParaGanharPorColuna(array){
         this.numerosGanhadores = [];
-        for(let i=0; i<array.length;i++){
-            if(this.numerosSorteados.indexOf(array[i]) < 0 && array[i] != ""){
-                return
+        for(let a=0; a<array.length;a++){
+            if(this.numerosSorteados.indexOf(array[a] + "") < 0 && array[a] != null){
+                return;
             }
-            this.numerosGanhadores.push(array[i])
+            if(array[a] != null){
+                this.numerosGanhadores.push(array[a]);
+            }
         }
         this.temGanhador = true;
     }
-    regrasParaGanharPorLinha(b, i, n, g, o){
-        for(let a=0; a<b.length;a++){
+
+    regrasParaGanharPorLinha(cartela){
+        for(let a=0; a<cartela.B.length;a++){
             if(!this.temGanhador){
                 this.numerosGanhadores = [];
             }else{return}
-            if(this.numerosSorteados.indexOf(b[a]) >= 0){
-                if(this.numerosSorteados.indexOf(i[a]) >= 0){
-                    if(this.numerosSorteados.indexOf(n[a]) >= 0 || this.numerosSorteados.indexOf(n[a]) ==''){
-                        if(this.numerosSorteados.indexOf(g[a]) >= 0){
-                            if(this.numerosSorteados.indexOf(o[a]) >= 0){
-                                this.numerosGanhadores.push(b[a]);
-                                this.numerosGanhadores.push(i[a]);
-                                this.numerosGanhadores.push(n[a]);
-                                this.numerosGanhadores.push(g[a]);
-                                this.numerosGanhadores.push(o[a]);
+            if(this.numerosSorteados.indexOf(cartela.B[a] + "") >= 0){
+                if(this.numerosSorteados.indexOf(cartela.I[a] + "") >= 0){
+                    console.log()
+                    if(this.numerosSorteados.indexOf(cartela.N[a] + "") >= 0 || this.numerosSorteados.indexOf(cartela.N[a] + "") === "" || cartela.N[a] == null){
+                        if(this.numerosSorteados.indexOf(cartela.G[a] + "") >= 0){
+                            if(this.numerosSorteados.indexOf(cartela.O[a] + "") >= 0){
+                                this.numerosGanhadores.push(cartela.B[a] + "");
+                                this.numerosGanhadores.push(cartela.I[a] + "");
+                                if(cartela.N[a] != null){
+                                    this.numerosGanhadores.push(cartela.N[a] + "");
+                                }
+                                this.numerosGanhadores.push(cartela.G[a] + "");
+                                this.numerosGanhadores.push(cartela.O[a] + "");
                                 this.temGanhador = true;
                                 return
                             }
@@ -95,40 +96,49 @@ export default class Regras {
             }
         }
     }
-
-    regrasParaGanharDeCimaParaBaixo(b, i, g, o){
+    regrasParaGanharDeCimaParaBaixo(cartela){
+        console.log("entrou")
         this.numerosGanhadores = [];
-        if(this.numerosSorteados.indexOf(b[0]) >= 0){
-            if(this.numerosSorteados.indexOf(i[1]) >= 0){
-                if(this.numerosSorteados.indexOf(g[3]) >= 0){
-                    if(this.numerosSorteados.indexOf(o[4]) >= 0){
-                        this.numerosGanhadores.push(b[0]);
-                        this.numerosGanhadores.push(i[1]);
-                        this.numerosGanhadores.push(g[3]);
-                        this.numerosGanhadores.push(o[4]);
+        if(this.numerosSorteados.indexOf(cartela.B[0] + "") >= 0) {
+            console.log("B");
+            if(this.numerosSorteados.indexOf(cartela.I[1] + "") >= 0){
+                console.log("I");
+                if(this.numerosSorteados.indexOf(cartela.G[3] + "") >= 0){
+                    console.log("G");
+                    if(this.numerosSorteados.indexOf(cartela.O[4] + "") >= 0){
+                        console.log("O");
+                        this.numerosGanhadores.push(cartela.B[0]);
+                        this.numerosGanhadores.push(cartela.I[1]);
+                        this.numerosGanhadores.push(cartela.G[3]);
+                        this.numerosGanhadores.push(cartela.O[4]);
                         this.temGanhador = true;
                         return
                     }
                 }
             }
         }
-    }
-
-    regrasParaGanharDeBaixoParaCima(b, i, g, o){
+    } 
+    
+    regrasParaGanharDeBaixoParaCima(cartela){
+        console.log("entrou")
         this.numerosGanhadores = [];
-        if(this.numerosSorteados.indexOf(b[4]) >= 0){
-            if(this.numerosSorteados.indexOf(i[3]) >= 0){
-                if(this.numerosSorteados.indexOf(g[1]) >= 0){
-                    if(this.numerosSorteados.indexOf(o[0]) >= 0){
-                        this.numerosGanhadores.push(b[4]);
-                        this.numerosGanhadores.push(i[3]);
-                        this.numerosGanhadores.push(g[1]);
-                        this.numerosGanhadores.push(o[0]);
+        if(this.numerosSorteados.indexOf(cartela.B[4] + "") >= 0) {
+            console.log("B");
+            if(this.numerosSorteados.indexOf(cartela.I[3] + "") >= 0){
+                console.log("I");
+                if(this.numerosSorteados.indexOf(cartela.G[1] + "") >= 0){
+                    console.log("G");
+                    if(this.numerosSorteados.indexOf(cartela.O[0] + "") >= 0){
+                        console.log("O");
+                        this.numerosGanhadores.push(cartela.B[4]);
+                        this.numerosGanhadores.push(cartela.I[3]);
+                        this.numerosGanhadores.push(cartela.G[1]);
+                        this.numerosGanhadores.push(cartela.O[0]);
                         this.temGanhador = true;
                         return
                     }
                 }
             }
         }
-    }
+    }    
 }

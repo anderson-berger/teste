@@ -178,7 +178,6 @@ export default {
 
     },
     corDaLetra(){
-      console.log(this.letraSorteada);
        if(this.letraSorteada === "B"){
         let corDaLetraSorteada = document.querySelector(".sorteadosLetra");
         corDaLetraSorteada.style.color = "#e61d1d";
